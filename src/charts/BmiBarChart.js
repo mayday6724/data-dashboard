@@ -3,28 +3,24 @@
 import data from "../mock_data_0821.json";
 import { BarChart } from "@mui/x-charts/BarChart";
 
-// Define age ranges
-const ageRanges = [
-  { range: "0-20歲", min: 0, max: 20 },
-  { range: "21-30歲", min: 21, max: 30 },
-  { range: "31-40歲", min: 31, max: 40 },
-  { range: "41-50歲", min: 41, max: 50 },
-  { range: "51-60歲", min: 51, max: 60 },
-  { range: "61-70歲", min: 61, max: 70 },
-  { range: "71-80歲", min: 71, max: 80 },
-  { range: "81歲以上", min: 81, max: Infinity },
+// Define BMI ranges
+const bmiRanges = [
+  { range: "過輕", min: -Infinity, max: 18.5 },
+  { range: "健康體重", min: 18.5, max: 24 },
+  { range: "過重", min: 24, max: 27 },
+  { range: "肥胖", min: 27, max: Infinity },
 ];
 
-// Initialize counts for each age range
-const counts = ageRanges.map((range) => ({
+// Initialize counts for each bmi range
+const counts = bmiRanges.map((range) => ({
   range: range.range,
   count: 0,
 }));
 
-// Count the number of people in each age range
+// Count the number of people in each bmi range
 data.forEach((person) => {
-  const age = parseInt(person.年齡, 10);
-  const range = ageRanges.find((range) => age >= range.min && age <= range.max);
+  const bmi = parseFloat(person.BMI).toFixed(2);
+  const range = bmiRanges.find((range) => bmi >= range.min && bmi < range.max);
   if (range) {
     const rangeData = counts.find((r) => r.range === range.range);
     if (rangeData) {
@@ -44,10 +40,10 @@ const percentages = counts.map((rangeData) => ({
 
 const valueFormatter = (value) => `${value}%`;
 
-function AgeRangeBarChart({ data }) {
+function BmiBarChart({ data }) {
   return (
     <div>
-      <h3>主要年齡客群</h3>
+      <h3>主要體位客群</h3>
       <BarChart
         dataset={data}
         yAxis={[{ scaleType: "band", dataKey: "range" }]}
@@ -63,5 +59,5 @@ function AgeRangeBarChart({ data }) {
   );
 }
 
-export const ageData = percentages;
-export default AgeRangeBarChart;
+export const bmiData = percentages;
+export default BmiBarChart;

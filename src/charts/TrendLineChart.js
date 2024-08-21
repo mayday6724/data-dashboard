@@ -21,20 +21,6 @@ export const monthData = Object.keys(monthCounts).map((month) => ({
 }));
 
 // draw the chart
-// const xLabels = [
-//   "1月",
-//   "2月",
-//   "3月",
-//   "4月",
-//   "5月",
-//   "6月",
-//   "7月",
-//   "8月",
-//   "9月",
-//   "10月",
-//   "11月",
-//   "12月",
-// ];
 
 function TrendLineChart() {
   return (
@@ -44,7 +30,7 @@ function TrendLineChart() {
         dataset={monthData}
         xAxis={[{ dataKey: "month", valueFormatter: (v) => `${v}月` }]}
         series={[{ dataKey: "value", label: "人數" }]}
-        width={500}
+        width={450}
         height={300}
       />
     </div>

@@ -20,14 +20,15 @@
 }
 
 .chart-container {
-  display: flex;          /* Use flexbox to control layout */
-  flex-direction: row;    /* Align charts in a row */
-  justify-content: space-between; /* Space them out evenly */
-  align-items: flex-start; /* Align the charts at the top */
-  gap: 20px;              /* Add space between the charts */
+  display: flex;          
+  flex-direction: row;  
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 20px;             
 }
 
 .chart {
-  flex: 1;                /* Allow charts to grow equally */
-  max-width: 45%;         /* Optional: Limit max width of each chart */
+  flex: 1;                
+  max-width: 45%;         
 }

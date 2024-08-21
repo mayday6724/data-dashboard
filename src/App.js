@@ -1,7 +1,13 @@
 import "./App.css";
 import AgeRangeBarChart, { ageData } from "./charts/AgeRangeBarChart";
 import GenderPieChart from "./charts/GenderPieChart";
-import TrendLineChart, { monthData } from "./charts/TrendLineChart";
+import TrendLineChart from "./charts/TrendLineChart";
+import BmiBarChart, { bmiData } from "./charts/BmiBarChart";
+import CompleteTimesBarChart, {
+  completeTimes,
+} from "./charts/CompleteTimesBarChart";
+import CompleteNumBarChart, { completeNum } from "./charts/CompleteNumBarChart";
+import LocationTreemap from "./charts/LocationTreemap";
 
 function App() {
   return (
@@ -11,9 +17,16 @@ function App() {
         <AgeRangeBarChart data={ageData} className="chart" />
         <GenderPieChart className="chart" />
         <TrendLineChart className="chart" />
+        <BmiBarChart data={bmiData} className="chart" />
+        <LocationTreemap />
+      </div>
+      <h2>黏著度分析</h2>
+      <div className="chart-container">
+        <CompleteTimesBarChart data={completeTimes} className="chart" />
+        <CompleteNumBarChart data={completeNum} className="chart" />
       </div>
     </div>
   );
 }
-console.log(monthData);
+
 export default App;
