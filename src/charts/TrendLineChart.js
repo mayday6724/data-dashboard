@@ -42,7 +42,7 @@ function TrendLineChart() {
       <h3>總報名人數趨勢變化</h3>
       <LineChart
         dataset={monthData}
-        xAxis={[{ dataKey: "month" }]}
+        xAxis={[{ dataKey: "month", valueFormatter: (v) => `${v}月` }]}
         series={[{ dataKey: "value", label: "人數" }]}
         width={500}
         height={300}
