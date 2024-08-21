@@ -1,8 +1,7 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
 import data from "../mock_data_0819.json";
-// import { PieChart, Pie, Tooltip, Legend } from "recharts";
-import { PieChart } from "@mui/x-charts/PieChart";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 
 // Initialize counters for each gender
 let maleCount = 0;
@@ -17,51 +16,47 @@ data.forEach((person) => {
   }
 });
 
-// Calculate total number of people
-// const totalCount = maleCount + femaleCount;
-
-// Calculate the percentage for each gender
-export const genderData = [
+// export the counts for each gender
+const genderData = [
   {
-    name: "Male",
+    label: "Male",
     value: maleCount,
+    color: "#0088FE",
   },
   {
-    name: "Female",
+    label: "Female",
     value: femaleCount,
+    color: "#FFBB28",
   },
 ];
 
+// Calculate total number of people and percentage
+const totalCount = maleCount + femaleCount;
+const getArcLabel = (params) => {
+  const percent = params.value / totalCount;
+  return `${(percent * 100).toFixed(0)}%`;
+};
+
 // draw the pie chart
-function GenderPieChart(data) {
+function GenderPieChart() {
   return (
     <PieChart
       series={[
         {
-          data: [
-            { id: 0, value: 10, label: "series A" },
-            { id: 1, value: 15, label: "series B" },
-            { id: 2, value: 20, label: "series C" },
-          ],
+          outerRadius: 80,
+          data: genderData,
+          arcLabel: getArcLabel,
         },
       ]}
+      sx={{
+        [`& .${pieArcLabelClasses.root}`]: {
+          fill: "white",
+          fontSize: 14,
+        },
+      }}
       width={400}
       height={200}
     />
-    // <PieChart width={730} height={250}>
-    //   <Pie
-    //     data={data}
-    //     dataKey="value"
-    //     nameKey="name"
-    //     cx="50%"
-    //     cy="50%"
-    //     outerRadius={50}
-    //     fill="#8884d8"
-    //     label
-    //   />
-    //   <Tooltip></Tooltip>
-    //   <Legend></Legend>
-    // </PieChart>
   );
 }
 

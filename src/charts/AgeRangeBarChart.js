@@ -1,7 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
 import data from "../mock_data_0819.json";
-//import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { BarChart } from "@mui/x-charts/BarChart";
 
 // Define age ranges
@@ -40,12 +39,12 @@ const totalPeople = data.length;
 // count percentage in each range
 const percentages = counts.map((rangeData) => ({
   range: rangeData.range,
-  percentage: ((rangeData.count / totalPeople) * 100).toFixed(2),
+  percentage: Math.round((rangeData.count / totalPeople) * 100),
 }));
 
 // formatting value
 const valueFormatter = (value) => `${value}%`;
-
+console.log(percentages);
 function AgeRangeBarChart({ data }) {
   return (
     <BarChart
@@ -57,13 +56,6 @@ function AgeRangeBarChart({ data }) {
       width={500}
       height={300}
     />
-    // <BarChart width={500} height={350} data={data}>
-    //   <CartesianGrid strokeDasharray="3 3" />
-    //   <XAxis dataKey="range" label={{ value: "年齡區間" }} height={80} />
-    //   <YAxis />
-    //   <Tooltip />
-    //   <Bar dataKey="percentage" fill="#8884d8" name={"總人數佔比"} />
-    // </BarChart>
   );
 }
 

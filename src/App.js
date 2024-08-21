@@ -1,6 +1,6 @@
 import "./App.css";
 import AgeRangeBarChart, { ageData } from "./charts/AgeRangeBarChart";
-import GenderPieChart, { genderData } from "./charts/GenderPieChart";
+import GenderPieChart from "./charts/GenderPieChart";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <h3 className="chartTitle">活動參與者主要年齡客群</h3>
       <AgeRangeBarChart data={ageData} />
       <h3 className="chartTitle">截至今日總參與人數</h3>
-      <GenderPieChart data={genderData} />
+      <GenderPieChart />
     </div>
   );
 }
