@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0819.json";
+import data from "../mock_data_0821.json";
 import { BarChart } from "@mui/x-charts/BarChart";
 
 // Define age ranges
@@ -44,18 +44,23 @@ const percentages = counts.map((rangeData) => ({
 
 // formatting value
 const valueFormatter = (value) => `${value}%`;
-console.log(percentages);
+
 function AgeRangeBarChart({ data }) {
   return (
-    <BarChart
-      dataset={data}
-      yAxis={[{ scaleType: "band", dataKey: "range" }]}
-      series={[{ dataKey: "percentage", label: "總人數佔比", valueFormatter }]}
-      layout="horizontal"
-      grid={{ vertical: true }}
-      width={500}
-      height={300}
-    />
+    <div>
+      <h3>主要年齡客群</h3>
+      <BarChart
+        dataset={data}
+        yAxis={[{ scaleType: "band", dataKey: "range" }]}
+        series={[
+          { dataKey: "percentage", label: "總人數佔比", valueFormatter },
+        ]}
+        layout="horizontal"
+        grid={{ vertical: true }}
+        width={500}
+        height={300}
+      />
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0819.json";
+import data from "../mock_data_0821.json";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 
 // Initialize counters for each gender
@@ -19,12 +19,12 @@ data.forEach((person) => {
 // export the counts for each gender
 const genderData = [
   {
-    label: "Male",
+    label: "男性",
     value: maleCount,
     color: "#0088FE",
   },
   {
-    label: "Female",
+    label: "女性",
     value: femaleCount,
     color: "#FFBB28",
   },
@@ -40,23 +40,27 @@ const getArcLabel = (params) => {
 // draw the pie chart
 function GenderPieChart() {
   return (
-    <PieChart
-      series={[
-        {
-          outerRadius: 80,
-          data: genderData,
-          arcLabel: getArcLabel,
-        },
-      ]}
-      sx={{
-        [`& .${pieArcLabelClasses.root}`]: {
-          fill: "white",
-          fontSize: 14,
-        },
-      }}
-      width={400}
-      height={200}
-    />
+    <div>
+      <h3>性別比</h3>
+      <p>截至今日總參與人數：{totalCount}</p>
+      <PieChart
+        series={[
+          {
+            outerRadius: 80,
+            data: genderData,
+            arcLabel: getArcLabel,
+          },
+        ]}
+        sx={{
+          [`& .${pieArcLabelClasses.root}`]: {
+            fill: "white",
+            fontSize: 14,
+          },
+        }}
+        width={400}
+        height={200}
+      />
+    </div>
   );
 }
 
