@@ -22,7 +22,7 @@ export const locationCounts = Object.keys(cityCounts).map((key) => ({
   size: cityCounts[key],
 }));
 
-function LocationTreemap() {
+function LocationTreeMap() {
   return (
     <div>
       <h3>主要地區客群</h3>
@@ -38,4 +38,4 @@ function LocationTreemap() {
   );
 }
 
-export default LocationTreemap;
+export default LocationTreeMap;
