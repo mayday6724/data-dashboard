@@ -8,6 +8,7 @@ import CompleteTimesBarChart, {
 } from "./charts/CompleteTimesBarChart";
 import CompleteNumBarChart, { completeNum } from "./charts/CompleteNumBarChart";
 import LocationTreeMap from "./charts/LocationTreeMap";
+import CodePieChart from "./charts/CodePieChart";
 
 function App() {
   return (
@@ -18,12 +19,14 @@ function App() {
         <GenderPieChart className="chart" />
         <TrendLineChart className="chart" />
         <BmiBarChart data={bmiData} className="chart" />
+
         <LocationTreeMap />
       </div>
       <h2>黏著度分析</h2>
       <div className="chart-container">
         <CompleteTimesBarChart data={completeTimes} className="chart" />
         <CompleteNumBarChart data={completeNum} className="chart" />
+        <CodePieChart className="chart" />
       </div>
     </div>
   );
