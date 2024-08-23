@@ -7,7 +7,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 const registeredMembers = new Set();
 
 // Function to count new and returning members
-function countMembers(yearData) {
+function countMembers(year, yearData) {
   let newMembers = 0;
   let returningMembers = 0;
 
@@ -20,29 +20,37 @@ function countMembers(yearData) {
     }
   });
 
-  return { newMembers, returningMembers };
+  return { year, newMembers, returningMembers };
 }
 
-// Count members for each year
-const result2021 = countMembers(data2021);
-const result2022 = countMembers(data2022);
-const result2023 = countMembers(data2023);
+export const memberStatistics = [];
+memberStatistics.push(countMembers(2021, data2021));
+memberStatistics.push(countMembers(2022, data2022));
+memberStatistics.push(countMembers(2023, data2023));
 
 // draw the chart
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
-const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
-const xLabels = ["2021", "2022", "2023"];
-
-export default function SimpleLineChart() {
+function ReturnNumLineChart({ data }) {
   return (
-    <LineChart
-      width={500}
-      height={300}
-      series={[
-        { data: pData, label: "pv" },
-        { data: uData, label: "uv" },
-      ]}
-      xAxis={[{ scaleType: "point", data: xLabels }]}
-    />
+    <div>
+      <h3>新舊註冊會員人數歷年比較</h3>
+      <LineChart
+        dataset={data}
+        width={450}
+        height={300}
+        series={[
+          { dataKey: "newMembers", label: "新註冊會員" },
+          { dataKey: "returningMembers", label: "舊註冊會員" },
+        ]}
+        xAxis={[
+          {
+            scaleType: "point",
+            dataKey: "year",
+            valueFormatter: (v) => `${v}年`,
+          },
+        ]}
+      />
+    </div>
   );
 }
+
+export default ReturnNumLineChart;
