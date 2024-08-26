@@ -1,6 +1,7 @@
 import data2023 from "../mock_data_0821.json";
 import data2022 from "../2022mock_data_0822.json";
 import data2021 from "../2021mock_data_0822.json";
+import data2024 from "../2024mock_data.json";
 import { LineChart } from "@mui/x-charts/LineChart";
 
 // calculation
@@ -33,6 +34,7 @@ const calculateMonthData = (data) => {
 };
 
 // Calculate month data for each year
+const monthData2024 = calculateMonthData(data2024);
 const monthData2023 = calculateMonthData(data2023);
 const monthData2022 = calculateMonthData(data2022);
 const monthData2021 = calculateMonthData(data2021);
@@ -42,7 +44,6 @@ const numbers = Array.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 function TrendLineChart() {
   return (
     <div>
-      <h3>歷年報名人數趨勢</h3>
       <LineChart
         xAxis={[
           {
@@ -55,9 +56,10 @@ function TrendLineChart() {
           { data: monthData2021, label: "2021年" },
           { data: monthData2022, label: "2022年" },
           { data: monthData2023, label: "2023年" },
+          { data: monthData2024, label: "2024年" },
         ]}
         width={450}
-        height={300}
+        height={250}
       />
     </div>
   );

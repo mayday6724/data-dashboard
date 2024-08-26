@@ -32,7 +32,6 @@ memberStatistics.push(countMembers(2023, data2023));
 function ReturnNumLineChart({ data }) {
   return (
     <div>
-      <h3>新舊註冊會員人數歷年比較</h3>
       <LineChart
         dataset={data}
         width={450}

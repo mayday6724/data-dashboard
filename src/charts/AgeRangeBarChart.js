@@ -47,7 +47,6 @@ const valueFormatter = (value) => `${value}%`;
 function AgeRangeBarChart({ data }) {
   return (
     <div>
-      <h3>主要年齡客群</h3>
       <BarChart
         dataset={data}
         yAxis={[{ scaleType: "band", dataKey: "range" }]}
@@ -56,8 +55,8 @@ function AgeRangeBarChart({ data }) {
         ]}
         layout="horizontal"
         grid={{ vertical: true }}
-        width={450}
-        height={300}
+        width={350}
+        height={250}
       />
     </div>
   );

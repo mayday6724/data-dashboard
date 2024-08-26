@@ -41,8 +41,7 @@ const getArcLabel = (params) => {
 function GenderPieChart() {
   return (
     <div>
-      <h3>性別比</h3>
-      <p>截至今日總參與人數：{totalCount}</p>
+      {/* <p>截至今日總參與人數：{totalCount}</p> */}
       <PieChart
         series={[
           {
@@ -57,8 +56,8 @@ function GenderPieChart() {
             fontSize: 14,
           },
         }}
-        width={400}
-        height={200}
+        width={350}
+        height={250}
       />
     </div>
   );

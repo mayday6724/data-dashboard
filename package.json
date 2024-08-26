@@ -28,6 +28,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://mayday6724.github.io/data-dashboard/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,7 +45,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "https://mayday6724.github.io/data-dashboard/"
+    ]
   }
 }
