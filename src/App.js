@@ -4,7 +4,7 @@ import ChartCard from "./ChartCard";
 import DownloadButton from "./DownloadButton";
 import AgeRangeBarChart, { ageData } from "./charts/AgeRangeBarChart";
 import GenderPieChart, { totalCount } from "./charts/GenderPieChart";
-import TrendLineChart from "./charts/TrendLineChart";
+import TrendLineChart, { participantsFiles } from "./charts/TrendLineChart";
 import BmiBarChart, { bmiData } from "./charts/BmiBarChart";
 import CompleteTimesBarChart, {
   completeTimes,
@@ -20,11 +20,12 @@ import {
   registrationComparison,
 } from "./charts/RegistrationCount";
 import UpdatedTime from "./charts/UpdatedTime";
+import { distanceValue, distanceComparison } from "./charts/DistanceCount";
 
 function App() {
   return (
     <main className="flex overflow-hidden flex-col items-start px-14 pt-11 pb-56 bg-white max-md:px-5 max-md:pb-24">
-      <h1 className="text-xl text-black">
+      <h1 className="text-xl text-black font-bold">
         數位健走儀表板 Digital Walk Dashboard
       </h1>
       <section className="self-stretch mt-5 max-md:max-w-full">
@@ -33,7 +34,9 @@ function App() {
             <div className="flex flex-col grow text-black max-md:mt-5">
               <DashboardCard
                 title="本月新增報名人數"
-                value={registrationsValue}
+                value={new Intl.NumberFormat("en-US").format(
+                  registrationsValue
+                )}
                 comparison={registrationComparison}
               />
               <h2 className="self-start mt-24 text-xl max-md:mt-10">
@@ -51,8 +54,8 @@ function App() {
           <div className="flex flex-col ml-5 w-1/5 max-md:ml-0 max-md:w-full">
             <DashboardCard
               title="本月累積總里程（km）"
-              value="2,000"
-              comparison="+3%"
+              value={new Intl.NumberFormat("en-US").format(distanceValue)}
+              comparison={distanceComparison}
             />
           </div>
           <div className="flex flex-col ml-5 w-[41%] max-md:ml-0 max-md:w-full">
@@ -136,7 +139,7 @@ function App() {
       </section>
       <h2 className="mt-16 text-xl text-black max-md:mt-10">匯出歷年數據</h2>
       <div className="flex flex-wrap gap-10 mt-7 text-xl text-black whitespace-nowrap">
-        <DownloadButton text="下載參與者資料表" />
+        <DownloadButton text="下載參與者資料表" files={participantsFiles} />
         <DownloadButton text="下載健走軌跡資料表" />
         <DownloadButton text="下載月度健走統計表" />
       </div>

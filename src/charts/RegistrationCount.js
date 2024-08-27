@@ -1,6 +1,7 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
 import data from "../2024mock_data.json";
+import calculatePercentageChange from "./DistanceCount";
 
 const getMonthFromDate = (dateStr) => {
   return new Date(dateStr).getMonth() + 1; // JavaScript months are 0-11, so add 1
@@ -46,19 +47,9 @@ data.forEach((record) => {
   }
 });
 
-// Calculate the percentage change
-let percentageChange = 0;
-if (previousMonthRegistrations > 0) {
-  percentageChange =
-    ((lastMonthRegistrations - previousMonthRegistrations) /
-      previousMonthRegistrations) *
-    100;
-} else if (lastMonthRegistrations > 0) {
-  percentageChange = 100; // If there were no registrations in the previous month but there are some this month
-}
-
-// Format percentage change to one decimal place
-percentageChange = percentageChange.toFixed(1);
-
 export const registrationsValue = lastMonthRegistrations;
-export const registrationComparison = percentageChange + "%";
+export const registrationComparison =
+  calculatePercentageChange(
+    lastMonthRegistrations,
+    previousMonthRegistrations
+  ) + "%";

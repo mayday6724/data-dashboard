@@ -64,5 +64,10 @@ function TrendLineChart() {
     </div>
   );
 }
-
 export default TrendLineChart;
+
+// pack data files and export
+export const participantsFiles = [
+  { name: "2021.json", data: { data2021 } },
+  { name: "2022.json", data: { data2022 } },
+];
