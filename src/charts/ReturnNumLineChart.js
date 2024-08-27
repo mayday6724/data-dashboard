@@ -1,3 +1,4 @@
+import data2024 from "../2024mock_data.json";
 import data2023 from "../mock_data_0821.json";
 import data2022 from "../2022mock_data_0822.json";
 import data2021 from "../2021mock_data_0822.json";
@@ -27,6 +28,7 @@ export const memberStatistics = [];
 memberStatistics.push(countMembers(2021, data2021));
 memberStatistics.push(countMembers(2022, data2022));
 memberStatistics.push(countMembers(2023, data2023));
+memberStatistics.push(countMembers(2024, data2024));
 
 // draw the chart
 function ReturnNumLineChart({ data }) {

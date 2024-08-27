@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0821.json";
+import data from "../2024mock_data.json";
 import { Treemap } from "recharts";
 
 // const COLORS = ["#8889DD", "#8DC77B", "#A5D297"];

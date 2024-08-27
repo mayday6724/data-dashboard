@@ -1,11 +1,11 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0821.json";
+import data from "../2024mock_data.json";
 import { BarChart } from "@mui/x-charts/BarChart";
 
 // Define age ranges
 const ageRanges = [
-  { range: "0-20歲", min: 0, max: 20 },
+  { range: "20歲以下", min: 0, max: 20 },
   { range: "21-30歲", min: 21, max: 30 },
   { range: "31-40歲", min: 31, max: 40 },
   { range: "41-50歲", min: 41, max: 50 },

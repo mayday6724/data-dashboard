@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0821.json";
+import data from "../2024mock_data.json";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
 
 // Initialize counters for each group

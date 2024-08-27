@@ -1,12 +1,12 @@
 // import React, { useEffect, useState } from 'react';
 // import { fetchData } from '../services/dataService.js';
-import data from "../mock_data_0821.json";
+import data from "../2024mock_data.json";
 import { BarChart } from "@mui/x-charts/BarChart";
 
 // Define BMI ranges
 const bmiRanges = [
   { range: "過輕", min: -Infinity, max: 18.5 },
-  { range: "健康體重", min: 18.5, max: 24 },
+  { range: "健康", min: 18.5, max: 24 },
   { range: "過重", min: 24, max: 27 },
   { range: "肥胖", min: 27, max: Infinity },
 ];
