@@ -41,7 +41,6 @@ const getArcLabel = (params) => {
 function CodePieChart() {
   return (
     <div>
-      <h3>邀請碼使用率</h3>
       <PieChart
         series={[
           {
@@ -56,8 +55,8 @@ function CodePieChart() {
             fontSize: 14,
           },
         }}
-        width={400}
-        height={200}
+        width={350}
+        height={250}
       />
     </div>
   );

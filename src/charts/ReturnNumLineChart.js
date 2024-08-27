@@ -35,7 +35,7 @@ function ReturnNumLineChart({ data }) {
       <LineChart
         dataset={data}
         width={450}
-        height={300}
+        height={250}
         series={[
           { dataKey: "newMembers", label: "新註冊會員" },
           { dataKey: "returningMembers", label: "舊註冊會員" },

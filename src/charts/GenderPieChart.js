@@ -31,7 +31,7 @@ const genderData = [
 ];
 
 // Calculate total number of people and percentage
-const totalCount = maleCount + femaleCount;
+export const totalCount = maleCount + femaleCount;
 const getArcLabel = (params) => {
   const percent = params.value / totalCount;
   return `${(percent * 100).toFixed(0)}%`;

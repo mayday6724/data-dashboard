@@ -26,7 +26,7 @@ function LocationTreeMap() {
   return (
     <div>
       <Treemap
-        width={350}
+        width={450}
         height={250}
         data={locationCounts}
         dataKey="size"

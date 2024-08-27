@@ -35,14 +35,13 @@ const valueFormatter = (value) => `${value}人`;
 function CompleteNumBarChart({ data }) {
   return (
     <div>
-      <h3>遊戲種類完成度－人數</h3>
       <BarChart
         dataset={data}
         xAxis={[{ scaleType: "band", dataKey: "name" }]}
         series={[{ dataKey: "value", label: "參與人數", valueFormatter }]}
         grid={{ horizontal: true }}
-        width={650}
-        height={300}
+        width={550}
+        height={250}
       />
     </div>
   );

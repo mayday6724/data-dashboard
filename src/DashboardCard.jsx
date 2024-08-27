@@ -7,7 +7,7 @@ function DashboardCard({ title, value, comparison, date }) {
       <p className="self-start mt-4 text-3xl font-semibold">{value}</p>
       <hr className="shrink-0 mt-2.5 h-0.5 border border-solid border-neutral-300" />
       {comparison ? (
-        <p className="mt-3 leading-7 text-right">
+        <p className="mt-3 leading-7 text-left">
           與上月相比 <span className="font-bold text-green-600">{comparison}</span>
         </p>
       ) : (
