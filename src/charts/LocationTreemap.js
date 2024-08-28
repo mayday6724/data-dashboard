@@ -1,9 +1,9 @@
-// import React, { useEffect, useState } from 'react';
-// import { fetchData } from '../services/dataService.js';
+// // import React, { useEffect, useState } from 'react';
+// // import { fetchData } from '../services/dataService.js';
+
+import React from "react";
 import data from "../2024mock_data.json";
 import { Treemap } from "recharts";
-
-// const COLORS = ["#8889DD", "#8DC77B", "#A5D297"];
 
 // calculation
 const cityCounts = {};
@@ -22,6 +22,41 @@ export const locationCounts = Object.keys(cityCounts).map((key) => ({
   size: cityCounts[key],
 }));
 
+const total = Object.values(cityCounts).reduce((acc, count) => acc + count, 0);
+
+const CustomizedContent = (props) => {
+  const { x, y, width, height, name, size } = props;
+  const percentage = ((size / total) * 100).toFixed(2);
+
+  return (
+    <g>
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        style={{ fill: "#4e79a7", stroke: "#fff" }}
+      />
+      <text
+        x={x + width / 2}
+        y={y + height / 2}
+        textAnchor="middle"
+        fill="#fff"
+      >
+        {name}
+      </text>
+      <text
+        x={x + width / 2}
+        y={y + height / 2 + 20}
+        textAnchor="middle"
+        fill="#fff"
+      >
+        {percentage}%
+      </text>
+    </g>
+  );
+};
+
 function LocationTreeMap() {
   return (
     <div>
@@ -30,8 +65,7 @@ function LocationTreeMap() {
         height={250}
         data={locationCounts}
         dataKey="size"
-        stroke="#fff"
-        fill="#4e79a7"
+        content={<CustomizedContent />}
       />
     </div>
   );
