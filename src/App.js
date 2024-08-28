@@ -21,6 +21,8 @@ import {
 } from "./charts/RegistrationCount";
 import UpdatedTime from "./charts/UpdatedTime";
 import { distanceValue, distanceComparison } from "./charts/DistanceCount";
+import DistanceLineChart, { distanceData } from "./charts/DistanceLineChart";
+import MinutesLineChart, { minutesData } from "./charts/ＭinutesLineChart";
 
 function App() {
   return (
@@ -125,16 +127,20 @@ function App() {
           <div className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
             <ChartCard title="邀請碼使用率" ChartComponent={CodePieChart} />
           </div>
-          {/* <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+          <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
             <ChartCard
-              title="主要體位客群"
-              data={bmiData}
-              ChartComponent={BmiBarChart}
+              title="每月健走里程變化（km）"
+              data={distanceData}
+              ChartComponent={DistanceLineChart}
             />
           </div>
           <div className="flex flex-col ml-5 w-[33%] max-md:ml-0 max-md:w-full">
-            <ChartCard title="性別比" ChartComponent={GenderPieChart} />
-          </div> */}
+            <ChartCard
+              title="每月健走時間變化（min）"
+              data={minutesData}
+              ChartComponent={MinutesLineChart}
+            />
+          </div>
         </div>
       </section>
       <h2 className="mt-16 text-xl text-black max-md:mt-10">匯出歷年數據</h2>
@@ -148,3 +154,5 @@ function App() {
 }
 
 export default App;
+
+console.log(distanceData);
