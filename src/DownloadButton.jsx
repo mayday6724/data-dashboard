@@ -4,7 +4,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 // Convert JSON data to XLSX and add to a ZIP file
-async function convertAndDownload(files) {
+async function convertAndDownload(files, fileName) {
   const zip = new JSZip();
 
   files.forEach((file) => {
@@ -21,13 +21,13 @@ async function convertAndDownload(files) {
 
   // Generate ZIP file and trigger download
   const zipBlob = await zip.generateAsync({ type: 'blob' });
-  saveAs(zipBlob, 'files.zip');
+  saveAs(zipBlob, `${fileName}.zip`);
 }
 
-function DownloadButton({ text, files }) {
+function DownloadButton({ text, files, fileName}) {
   return (
     <button
-      onClick={() => convertAndDownload(files)}
+      onClick={() => convertAndDownload(files, fileName)}
       className="px-8 py-6 bg-green-300 rounded-3xl shadow-[0px_4px_10px_rgba(0,0,0,0.25)] max-md:px-5"
     >
       {text}

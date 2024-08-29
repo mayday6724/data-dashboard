@@ -21,7 +21,10 @@ import {
 } from "./charts/RegistrationCount";
 import UpdatedTime from "./charts/UpdatedTime";
 import { distanceValue, distanceComparison } from "./charts/DistanceCount";
-import DistanceLineChart, { distanceData } from "./charts/DistanceLineChart";
+import DistanceLineChart, {
+  distanceData,
+  distanceFiles,
+} from "./charts/DistanceLineChart";
 import MinutesLineChart, { minutesData } from "./charts/ＭinutesLineChart";
 
 function App() {
@@ -145,14 +148,20 @@ function App() {
       </section>
       <h2 className="mt-16 text-xl text-black max-md:mt-10">匯出歷年數據</h2>
       <div className="flex flex-wrap gap-10 mt-7 text-xl text-black whitespace-nowrap">
-        <DownloadButton text="下載參與者資料表" files={participantsFiles} />
+        <DownloadButton
+          text="下載參與者資料表"
+          files={participantsFiles}
+          fileName={"參與者資料表"}
+        />
         <DownloadButton text="下載健走軌跡資料表" />
-        <DownloadButton text="下載月度健走統計表" />
+        <DownloadButton
+          text="下載月度健走統計表"
+          files={distanceFiles}
+          fileName={"月度健走統計表"}
+        />
       </div>
     </main>
   );
 }
 
 export default App;
-
-console.log(distanceData);

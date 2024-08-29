@@ -68,6 +68,8 @@ export default TrendLineChart;
 
 // pack data files and export
 export const participantsFiles = [
-  { name: "2021.json", data: { data2021 } },
-  { name: "2022.json", data: { data2022 } },
+  { name: "2021_表一_參與者資料表.json", data: data2021 },
+  { name: "2022_表一_參與者資料表.json", data: data2022 },
+  { name: "2023_表一_參與者資料表.json", data: data2023 },
+  { name: "2024_表一_參與者資料表.json", data: data2024 },
 ];

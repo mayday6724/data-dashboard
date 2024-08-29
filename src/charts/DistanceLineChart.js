@@ -62,3 +62,8 @@ function DistanceLineChart({ data }) {
   );
 }
 export default DistanceLineChart;
+
+// pack data files and export
+export const distanceFiles = [
+  { name: "2024_表三_月度健走統計表.json", data: data2024 },
+];
